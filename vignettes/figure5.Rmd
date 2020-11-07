@@ -1,0 +1,36 @@
+---
+title: "Figure5"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figure5}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+devtools::load_all(".", quiet=TRUE)
+library(EIFAnalysis)
+```
+
+```{r}
+  plot.Venn.all()
+```
+
+```{r}
+  plot.Venn.lung(x = "Lung")
+```
+
+```{r}
+  plot.heatmap.total()
+```
+
+```{r}
+  plot.heatmap.lung(x = "Lung")
+```

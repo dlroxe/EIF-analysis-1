@@ -1,0 +1,65 @@
+---
+title: "Figure3"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figure3}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+devtools::load_all(".", quiet=TRUE)
+library(EIFAnalysis)
+```
+
+```{r}
+  plot.EIF.TCGA.GTEX.PCA.all.tumor.tissue(c(
+    "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
+    "PABPC1", "MKNK1", "MKNK2"
+  ))
+
+
+```
+
+```{r}
+  plot.EIF.TCGA.GTEX.PCA.all.tumor.tissue(c(
+    "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
+    "PABPC1", "MKNK1", "MKNK2",
+    "MYC", "JUN", "YY1"
+  ))
+```
+
+```{r}
+  plot.EIF.TCGA.GTEX.PCA.each.tumor(
+    c(
+      "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
+      "PABPC1", "MKNK1", "MKNK2", "MYC"
+    ),
+    "Lung"
+  )
+```
+
+```{r}
+  plot.EIF.TCGA.PCA.all.tumor(c(
+    "EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1",
+    "PABPC1", "MKNK1", "MKNK2"
+  ))
+```
+
+```{r}
+  plot.EIF.GTEX.PCA.all.tissue(c(
+    "EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1",
+    "PABPC1", "MKNK1", "MKNK2"
+  ))
+```
+
+```{r}
+  plot.EIF.CPTAC.PCA.LUAD()
+```

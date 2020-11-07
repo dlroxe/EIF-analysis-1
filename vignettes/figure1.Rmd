@@ -1,0 +1,60 @@
+---
+title: "Figure-1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figure-1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+devtools::load_all(".", quiet=TRUE)
+library(EIFAnalysis)
+```
+
+# TODO: For non-Windows multicore systems, lapply() calls below could perhaps
+#       be made to execute simultaneously with mclapply().
+
+```{r}
+lapply(
+  c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
+  plot.bargraph.EIF.CNV.TCGA
+)
+```
+
+```{r}
+plot.bargraph.EIF.CNV.sum(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
+
+```
+
+```{r}
+plot.matrix.EIF.CNV.corr(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
+
+```
+
+```{r}
+plot.violin.EIF.CNV.RNAseq("EIF4A1")
+
+```
+
+```{r}
+lapply(
+  c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"),
+  plot.violin.EIF.CNV.RNAseq
+)
+
+```
+
+```{r}
+lapply(
+  c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
+  plot.boxgraph.EIF.CNVratio.TCGA
+)
+```

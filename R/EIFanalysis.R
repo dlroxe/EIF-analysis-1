@@ -11,7 +11,11 @@ library(dplyr)
 # library(drawProteins)
 library(EnvStats)
 library(eulerr)
-library(facetscales)
+# Note that "facetscales" isn't a "real" package, but can only be installed
+# from GitHub.  RStudio and its automated package building/checking tools
+# typically run into errors with "library(facetscales)"; so use "require"
+# instead of "library" to avoid generating an error.
+require(facetscales)
 library(factoextra)
 library(FactoMineR)
 library(forcats) # change the order of x-axis
@@ -7898,114 +7902,3 @@ plot.EIF4.CPTAC.pro.LUAD <- function() {
   }
   nor.phos.plot()
 }
-
-# TODO: For non-Windows multicore systems, lapply() calls below could perhaps
-#       be made to execute simultaneously with mclapply().
-
-# Figure 1
-lapply(
-  c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
-  plot.bargraph.EIF.CNV.TCGA
-)
-
-plot.bargraph.EIF.CNV.sum(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
-
-plot.matrix.EIF.CNV.corr(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
-
-plot.violin.EIF.CNV.RNAseq("EIF4A1")
-
-lapply(
-  c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"),
-  plot.violin.EIF.CNV.RNAseq
-)
-
-lapply(
-  c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
-  plot.boxgraph.EIF.CNVratio.TCGA
-)
-
-# Figure 2
-plot.boxgraph.EIF.RNAseq.TCGA.GTEX(c("EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1"))
-plot.boxgraph.EIF.ratio.TCGA.GTEX(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
-plot.violingraph.EIF.RNAseq.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
-plot.violingraph.EIF.ratio.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
-
-
-# Figure 3
-plot.EIF.TCGA.GTEX.PCA.all.tumor.tissue(c(
-  "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
-  "PABPC1", "MKNK1", "MKNK2"
-))
-
-plot.EIF.TCGA.GTEX.PCA.all.tumor.tissue(c(
-  "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
-  "PABPC1", "MKNK1", "MKNK2",
-  "MYC", "JUN", "YY1"
-))
-
-plot.EIF.TCGA.GTEX.PCA.each.tumor(
-  c(
-    "EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1",
-    "PABPC1", "MKNK1", "MKNK2", "MYC"
-  ),
-  "Lung"
-)
-
-plot.EIF.TCGA.PCA.all.tumor(c(
-  "EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1",
-  "PABPC1", "MKNK1", "MKNK2"
-))
-
-plot.EIF.GTEX.PCA.all.tissue(c(
-  "EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1",
-  "PABPC1", "MKNK1", "MKNK2"
-))
-
-plot.EIF.CPTAC.PCA.LUAD()
-
-
-# Figure 4
-plot.km.EIF.all.tumors("EIF4G1")
-lapply(
-  c(
-    "EIF4E", "EIF4E2", "EIF4E3",
-    "EIF4G1", "EIF4G2", "EIF4G3",
-    "EIF4A1", "EIF4A2",
-    "EIF4EBP1", "PABPC1", "MKNK1", "MKNK2",
-    "DDX3X", "EIF4B", "EIF4H", "EIF2S1",
-    "EIF3A", "EIF3B", "EIF3C", "EIF3D",
-    "EIF3E", "EIF3F", "EIF3G", "EIF3H",
-    "EIF3I", "EIF3J", "EIF3K", "EIF3L", "EIF3M",
-    "EIF4B", "EIF4H",
-    "MTOR", "RPTOR", "RICTOR", "RPS6KB1", "MYC"
-  ), plot.km.EIF.all.tumors
-)
-
-plot.km.EIF.each.tumor(
-  EIF = "EIF4G1",
-  tumor = c("lung adenocarcinoma")
-)
-
-lapply(
-  c(
-    "EIF4E", "EIF4G1", "EIF4G2", "EIF4A1",
-    "EIF4EBP1", "PABPC1", "MKNK1", "MKNK2",
-    "MTOR", "RPTOR", "RPS6KB1", "MYC"
-  ),
-  plot.km.EIF.each.tumor,
-  tumor = "lung adenocarcinoma"
-)
-plot.coxph.EIF.all.tumors()
-plot.coxph.EIF.each.tumor(c("lung adenocarcinoma"))
-
-
-# Figure 5
-plot.Venn.all()
-plot.Venn.lung(x = "Lung")
-plot.heatmap.total()
-plot.heatmap.lung(x = "Lung")
-
-
-# Figure 6
-plot.EIF4.CPTAC.pro.LUAD()
-

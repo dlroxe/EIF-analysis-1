@@ -1,0 +1,38 @@
+---
+title: "Figure2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figure2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+devtools::load_all(".", quiet=TRUE)
+library(EIFAnalysis)
+```
+
+```{r}
+plot.boxgraph.EIF.RNAseq.TCGA.GTEX(c("EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1"))
+
+```
+
+```{r}
+plot.boxgraph.EIF.ratio.TCGA.GTEX(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
+
+```
+
+```{r}
+plot.violingraph.EIF.RNAseq.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
+```
+
+```{r}
+plot.violingraph.EIF.ratio.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
+```
