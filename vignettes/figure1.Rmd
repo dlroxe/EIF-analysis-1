@@ -14,37 +14,37 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-devtools::load_all(".", quiet=TRUE)
+```{r setup, include = FALSE}
+devtools::load_all(".", quiet = TRUE)
 library(EIFAnalysis)
 ```
 
+
+```{r figure1_part1, fig.height=6, fig.width=6, fig.cap="A nice image."}
 # TODO: For non-Windows multicore systems, lapply() calls below could perhaps
 #       be made to execute simultaneously with mclapply().
-
-```{r}
 lapply(
   c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
   plot.bargraph.EIF.CNV.TCGA
 )
 ```
 
-```{r}
+```{r figure1_part2, fig.height=6, fig.width=6, fig.cap="A nice image."}
 plot.bargraph.EIF.CNV.sum(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
 
 ```
 
-```{r}
+```{r figure1_part3, fig.height=6, fig.width=6, fig.cap="A nice image.", dev = "PNG"}
 plot.matrix.EIF.CNV.corr(c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"))
 
 ```
 
-```{r}
+```{r figure1_part4, fig.height=6, fig.width=6, fig.cap="A nice image."}
 plot.violin.EIF.CNV.RNAseq("EIF4A1")
 
 ```
 
-```{r}
+```{r figure1_part5, fig.height=6, fig.width=6, fig.cap="A nice image."}
 lapply(
   c("PTEN", "EIF4A1", "EIF4E", "MYC", "EIF4EBP1", "EIF4G1"),
   plot.violin.EIF.CNV.RNAseq
@@ -52,7 +52,7 @@ lapply(
 
 ```
 
-```{r}
+```{r figure1_part6, fig.height=6, fig.width=6, fig.cap="A nice image."}
 lapply(
   c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1", "MYC", "PTEN"),
   plot.boxgraph.EIF.CNVratio.TCGA

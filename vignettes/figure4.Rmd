@@ -14,16 +14,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-devtools::load_all(".", quiet=TRUE)
+```{r setup, include = FALSE}
+devtools::load_all(".", quiet = TRUE)
 library(EIFAnalysis)
 ```
 
-```{r}
+```{r figure4_part1}
   plot.km.EIF.all.tumors("EIF4G1")
 ```
 
-```{r}
+```{r figure4_part2}
   lapply(
     c(
       "EIF4E", "EIF4E2", "EIF4E3",
@@ -40,14 +40,14 @@ library(EIFAnalysis)
   )
 ```
 
-```{r}
+```{r figure4_part3}
   plot.km.EIF.each.tumor(
     EIF = "EIF4G1",
     tumor = c("lung adenocarcinoma")
   )
 ```
 
-```{r}
+```{r figure4_part4}
   lapply(
     c(
       "EIF4E", "EIF4G1", "EIF4G2", "EIF4A1",
@@ -59,10 +59,10 @@ library(EIFAnalysis)
   )
 ```
 
-```{r}
+```{r figure4_part5}
   plot.coxph.EIF.all.tumors()
 ```
 
-```{r}
+```{r figure4_part6}
   plot.coxph.EIF.each.tumor(c("lung adenocarcinoma"))
 ```

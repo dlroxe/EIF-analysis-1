@@ -14,23 +14,23 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-devtools::load_all(".", quiet=TRUE)
+```{r setup, include = FALSE}
+devtools::load_all(".", quiet = TRUE)
 library(EIFAnalysis)
 ```
 
-```{r}
+```{r figure5_part1}
   plot.Venn.all()
 ```
 
-```{r}
+```{r figure5_part2}
   plot.Venn.lung(x = "Lung")
 ```
 
-```{r}
+```{r figure5_part3}
   plot.heatmap.total()
 ```
 
-```{r}
+```{r figure5_part4}
   plot.heatmap.lung(x = "Lung")
 ```

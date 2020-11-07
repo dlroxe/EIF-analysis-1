@@ -14,25 +14,25 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-devtools::load_all(".", quiet=TRUE)
+```{r setup, include = FALSE}
+devtools::load_all(".", quiet = TRUE)
 library(EIFAnalysis)
 ```
 
-```{r}
+```{r figure2_part1}
 plot.boxgraph.EIF.RNAseq.TCGA.GTEX(c("EIF4G1", "EIF4A1", "EIF4E", "EIF4EBP1"))
 
 ```
 
-```{r}
+```{r figure2_part2}
 plot.boxgraph.EIF.ratio.TCGA.GTEX(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
 
 ```
 
-```{r}
+```{r figure2_part3}
 plot.violingraph.EIF.RNAseq.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
 ```
 
-```{r}
+```{r figure2_part4}
 plot.violingraph.EIF.ratio.TCGA(c("EIF4E", "EIF4G1", "EIF4A1", "EIF4EBP1"))
 ```

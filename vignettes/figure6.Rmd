@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-devtools::load_all(".", quiet=TRUE)
+```{r setup, include = FALSE}
+devtools::load_all(".", quiet = TRUE)
 library(EIFAnalysis)
 ```
 
-```{r}
+```{r figure6_part1}
   plot.EIF4.CPTAC.pro.LUAD()
 ```
